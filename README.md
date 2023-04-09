@@ -3,7 +3,7 @@
 ## Introduction 
 In this project, I have executed an End-To-End Data Engineering Project on Real-Time Stock Market simulation Data using Kafka.
 
-I am going to use different technologies such as Python, Amazon Web Services (AWS), Apache Kafka, Glue, Athena, and SQL.
+I have used different technologies such as Python, Amazon Web Services (AWS), Apache Kafka, Glue, Athena, and SQL.
 
 ## Architecture 
 <img src="Architecture.jpg">
@@ -20,7 +20,7 @@ I am going to use different technologies such as Python, Amazon Web Services (AW
 
 
 ## Dataset Used
-Any dataset could be used, but I was mainly interested in operation side of Data Engineering (building data pipeline) 
+Any stockmarket dataset could be used, but I was mainly interested in operation side of Data Engineering (building data pipeline) 
 
 Here is the dataset used - https://github.com/hackanurag/Data-Engineering-project-stock-market-simulation/blob/main/indexProcessed.csv
 
