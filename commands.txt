@@ -1,0 +1,58 @@
+wget https://downloads.apache.org/kafka/3.3.1/kafka_2.12-3.3.1.tgz  //download binary kafka Scala version
+tar -xvf kafka_2.12-3.3.1.tgz  --> to decompress the data
+
+
+-----------------------
+java -version
+sudo yum install java  --> any Java latest version would work
+java -version
+cd kafka_2.12-3.3.1
+
+Start Zoo-keeper:
+-------------------------------
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Start Kafka-server:
+----------------------------------------
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"  
+--> This command sets the KAFKA_HEAP_OPTS environment variable to specify the heap size for Kafka's Java virtual machine (JVM).
+-Xmx256M sets the maximum heap size to 256 megabytes, while -Xms128M sets the initial heap size to 128 megabytes.
+
+cd kafka_2.12-3.3.1
+bin/kafka-server-start.sh config/server.properties
+
+It is pointing to private server , change server.properties so that it can run in public IP 
+
+To do this
+Do a -->
+"sudo nano config/server.properties" - change ADVERTISED_LISTENERS to public ip of the EC2 instance
+
+Create the topic:
+-----------------------------
+bin/kafka-topics.sh --create --topic demo_testing2 --bootstrap-server <yout local ip>:9092 --replication-factor 1 --partitions 1
+
+#To check created topic:
+	"bin/kafka-topics.sh --bootstrap-server=<yout local ip>:9092 --list
+
+
+Start Producer:
+--------------------------
+bin/kafka-console-producer.sh --topic demo --bootstrap-server <yout local ip>:9092
+
+Start Consumer:
+-------------------------
+bin/kafka-console-consumer.sh --topic demo --bootstrap-server <yout local ip>:9092
+
+
+
+
+**NOTES**:
+#Mostly Zookepeer will run on port "2181" and kafka on port "9092" or else check port using -->
+	"nano config/zookeeper.properties"
+	"nano config/server.properties"
+
+#check PIDs using -->
+	"sudo lsof -i :<port number>"
+
+#It might be the case that zookepeer and kafka blocks the port after first execution, so in that case use -->
+"kill -9 <PIDs fetched in previous step>
