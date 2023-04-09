@@ -24,4 +24,4 @@ Any dataset could be used, but I was mainly interested in operation side of Data
 
 Here is the dataset used - https://github.com/hackanurag/Data-Engineering-project-stock-market-simulation/blob/main/indexProcessed.csv
 
-All the required comands and notes are added to - https://github.com/hackanurag/Data-Engineering-project-stock-market-simulation/blob/main/indexProcessed.csv
+All the required comands and notes are added to - https://github.com/hackanurag/Data-Engineering-project-stock-market-simulation/blob/main/commands.txt
